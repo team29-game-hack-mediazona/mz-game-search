@@ -17,13 +17,16 @@ import {
   ROOM_FLAG_BROKE,
   ROOM_FLAG_TO_TRASH,
   ROOM_FLAG_DROP,
+  ROOM_FLAG_TO_CABINET,
   ROOM_CALENDAR_BROKE,
   ROOM_CALENDAR_TO_TRASH,
   ROOM_CALENDAR_DROP,
+  ROOM_CALENDAR_TO_CABINET,
   ROOM_STICKER_OPEN,
   ROOM_STICKER_BROKE,
   ROOM_STICKER_TO_TRASH,
   ROOM_STICKER_DROP,
+  ROOM_STICKER_TO_CABINET,
   ROOM_TRASH_FIRE,
 } from '../configMainState'
 
@@ -82,6 +85,10 @@ export default class extends State {
         this.game.objects.inTrash.push(object.name);
         object.softDisable();
         break;
+      case ROOM_FLAG_TO_CABINET:
+        this.game.objects.inCabinet.push(object.name);
+        object.softDisable();
+        break;
       case ROOM_FLAG_DROP:
         this.game.objects.dropped.push(object.name);
         object.softDisable();
@@ -95,6 +102,10 @@ export default class extends State {
         this.game.objects.inTrash.push(object.name);
         object.softDisable();
         break;
+      case ROOM_CALENDAR_TO_CABINET:
+        this.game.objects.inCabinet.push(object.name);
+        object.softDisable();
+        break;
       case ROOM_CALENDAR_DROP:
         this.game.objects.dropped.push(object.name);
         object.softDisable();
@@ -106,6 +117,10 @@ export default class extends State {
         break;
       case ROOM_STICKER_TO_TRASH:
         this.game.objects.inTrash.push(object.name);
+        object.softDisable();
+        break;
+      case ROOM_STICKER_TO_CABINET:
+        this.game.objects.inCabinet.push(object.name);
         object.softDisable();
         break;
       case ROOM_STICKER_DROP:
