@@ -11,6 +11,20 @@ const RECOMEND_ADV = '• Во время обыска страшно остат
 const RECOMEND_PRIORITY = '• Подумайте, какие объекты были важнее'
 const RECOMENT_NO_BROKE = '• Не стоит ломать ноутбук или телефон'
 
+const CONTACTS = `Памятки о том, как подготовится к обыску
+
+У меня дома обыск. Что делать? https://team29.org/knowhow/obysk/
+
+Как найти хорошего адвоката? https://meduza.io/cards/kak-nayti-horoshego-advokata
+
+Информационная самооборона. Десять приемов защиты от прослушки и взлома https://team29.org/keep_privacy/
+
+Телефоны правозащитников
+
+ОВД-Инфо 
+номер 8 800 707-05-28 
+правовой бот в тг @OvdInfoBot`
+
 export default class extends State {
   init() { }
   preload() { }
@@ -25,12 +39,16 @@ export default class extends State {
     }
 
     let pointsText = `Вы получили ${this.game.points} баллов\n`
+    let pointsFill = 'white';
     if (this.game.points < 25) {
       pointsText += POINTS_L1
+      pointsFill = 'red'
     } else if (this.game.points < 50) {
       pointsText += POINTS_L2
+      pointsFill = 'yellow'
     } else {
       pointsText += POINTS_L3
+      pointsFill = 'green'
     }
 
     let recomendationText = '';
@@ -40,6 +58,8 @@ export default class extends State {
     if (this.game.objects.isBroken('room-phone') || this.game.objects.isBroken('room-laptop')) recomendationText += `\n${RECOMENT_NO_BROKE}`;
     if (this.game.objects.isUnavaliable('room-flag') || this.game.objects.isUnavaliable('room-calendar')) recomendationText += `\n${RECOMEND_PRIORITY}`
 
+    let contactsText = CONTACTS;
+
     let titleText = '';
     switch (this.game.result) {
       case 'fire':
@@ -48,6 +68,7 @@ export default class extends State {
         this.game.add.existing(fire);
         pointsText = '';
         recomendationText = '';
+        contactsText = '';
         break;
       case 'open':
         titleText = 'Вы открыли дверь.\nВ квартиру ввалились около десятка мрачных людей:\nсиловики в форме, люди в штатском и понятые.'
@@ -57,9 +78,10 @@ export default class extends State {
         break;
     }
 
-    this.game.add.text(100, 200, titleText, { font: 'bold 20pt Arial', fill: 'white' })
-    this.game.add.text(100, 400, pointsText, { font: 'bold 18pt Arial', fill: 'white' })
-    this.game.add.text(100, 500, recomendationText, { font: 'bold 16pt Arial', fill: 'white' })
+    this.game.add.text(100, 100, titleText, { font: 'bold 16pt Arial', fill: 'white' })
+    this.game.add.text(100, 225, pointsText, { font: 'bold 15pt Arial', fill: pointsFill })
+    this.game.add.text(100, 300, recomendationText, { font: 'bold 14pt Arial', fill: 'white' })
+    this.game.add.text(100, 550, contactsText, { font: 'bold 13pt Arial', fill: 'white' })
   }
 
   render() {

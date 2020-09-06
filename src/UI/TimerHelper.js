@@ -1,7 +1,7 @@
 import Phaser from 'phaser'
 
 // Сколько времени отсчитывает таймер
-const TIME_IN_SECONDS = 1 * 60
+const TIME_IN_SECONDS = 1 * 30
 
 class TimerHelper {
   constructor() {
