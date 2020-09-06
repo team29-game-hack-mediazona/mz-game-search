@@ -17,6 +17,7 @@ export default class extends Phaser.State {
 
     this.logoutButton = new Button(this.game, 952, 344, 'logout', () => {
       this.game.objects.logout.push('vk')
+      this.game.points += 20
       this.state.start('LogoutLaptopScreen')
     })
     this.game.add.existing(this.logoutButton)
