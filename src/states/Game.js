@@ -110,6 +110,7 @@ export default class extends State {
   create() {
     const bg = new Sprite(this.game, 0, 0, 'room');
     this.game.add.existing(bg);
+    this.game.sound.play('knock').loopFull(0.5);
     // this.bgOverlay = new Overlay
 
     mainState.objects.map((object) => {

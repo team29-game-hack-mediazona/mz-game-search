@@ -66,6 +66,6 @@ export default class extends Phaser.State {
       )
     )
     this.game.add.existing(this.chromeButton)
-    BackButton.addButton(this.game, this.state, 'Game', 'close', () => { this.game.objects.cryptoTimer = indicator.remainingTime() })
+    BackButton.addButton(this.game, this.state, 'Game', 'close', () => { this.game.objects.cryptoTimer = indicator ? indicator.remainingTime() : 0 })
   }
 }
