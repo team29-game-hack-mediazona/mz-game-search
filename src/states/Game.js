@@ -31,8 +31,13 @@ export default class extends State {
   init() { }
   preload() { }
 
-  makeChoice(decision, object) {
-    if (!decision) return;
+  makeChoice(option, object) {
+    if (!option || !option.choice) return;
+    const decision = option.choice;
+
+    if (option.points) {
+      this.game.points = this.game.points + option.points;
+    }
 
     if (decision.points) this.game.points += decision.points;
 
@@ -139,7 +144,7 @@ export default class extends State {
           this.bgOverlay.show({
             image: object.imageZoom,
             options: object.options,
-            cb: (option) => this.makeChoice(option.choice, gameObject),
+            cb: (option) => this.makeChoice(option, gameObject),
           });
         }
       );
