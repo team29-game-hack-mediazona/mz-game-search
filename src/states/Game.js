@@ -116,6 +116,7 @@ export default class extends State {
   create() {
     const bg = new Sprite(this.game, 0, 0, 'room');
     this.game.add.existing(bg);
+    this.game.sound.play('knock').loopFull(0.5);
     // this.bgOverlay = new Overlay
 
     const trash = new Sprite(this.game, 700, 480, 'room-trash');
