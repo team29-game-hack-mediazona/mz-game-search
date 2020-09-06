@@ -137,7 +137,11 @@ export default class extends State {
 
   create() {
     const bg = new Sprite(this.game, 0, 0, 'room');
+    const cat = new Sprite(this.game, 1311, 690, 'cat');
     this.game.add.existing(bg);
+    this.game.add.existing(cat);
+    cat.inputEnabled = true
+    cat.events.onInputDown.add(() => this.game.sound.play('meow'), this)
     this.game.sound.play('knock').loopFull(0.5);
     // this.bgOverlay = new Overlay
 
@@ -195,6 +199,6 @@ export default class extends State {
   }
 
   render() {
-    // this.game.debug.spriteInfo(this.debugged, 32, 32);
+    // this.game.debug.spriteInfo(this.cat, 32, 32);
   }
 }
