@@ -26,8 +26,6 @@ export const ROOM_STICKER_TO_CABINET = Symbol('ROOM_STICKER_TO_CABINET')
 
 export const ROOM_TRASH_FIRE = Symbol('ROOM_TRASH_FIRE')
 
-export const ROOM_TRASH_FIRE = Symbol('ROOM_TRASH_FIRE')
-
 export const mainState = {
   objects: [
     {
