@@ -34,6 +34,8 @@ export default class extends State {
   makeChoice(decision, object) {
     if (!decision) return;
 
+    if (decision.points) this.game.points += decision.points;
+
     switch (decision) {
       case ROOM_LAPTOP_OPEN:
         this.state.start('MainLaptopScreen');
@@ -145,7 +147,7 @@ export default class extends State {
       this.game.add.button(
         950,
         30,
-        'button-game-start',
+        'button-game-door',
         () => {
           this.game.result = 'open'
           this.game.onTimeEnd()

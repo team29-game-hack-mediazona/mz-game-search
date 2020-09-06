@@ -11,15 +11,18 @@ export const ROOM_PHONE_DROP = Symbol('ROOM_PHONE_DROP')
 export const ROOM_FLAG_BROKE = Symbol('ROOM_FLAG_BROKE')
 export const ROOM_FLAG_TO_TRASH = Symbol('ROOM_FLAG_TO_TRASH')
 export const ROOM_FLAG_DROP = Symbol('ROOM_FLAG_DROP')
+export const ROOM_FLAG_TO_CABINET = Symbol('ROOM_FLAG_TO_CABINET')
 
 export const ROOM_CALENDAR_BROKE = Symbol('ROOM_CALENDAR_BROKE')
 export const ROOM_CALENDAR_TO_TRASH = Symbol('ROOM_CALENDAR_TO_TRASH')
 export const ROOM_CALENDAR_DROP = Symbol('ROOM_CALENDAR_DROP')
+export const ROOM_CALENDAR_TO_CABINET = Symbol('ROOM_CALENDAR_TO_CABINET')
 
 export const ROOM_STICKER_OPEN = Symbol('ROOM_STICKER_OPEN')
 export const ROOM_STICKER_BROKE = Symbol('ROOM_STICKER_BROKE')
 export const ROOM_STICKER_TO_TRASH = Symbol('ROOM_STICKER_TO_TRASH')
 export const ROOM_STICKER_DROP = Symbol('ROOM_STICKER_DROP')
+export const ROOM_STICKER_TO_CABINET = Symbol('ROOM_STICKER_TO_CABINET')
 
 export const ROOM_TRASH_FIRE = Symbol('ROOM_TRASH_FIRE')
 
@@ -37,18 +40,27 @@ export const mainState = {
         {
           title: 'Открыть',
           choice: ROOM_LAPTOP_OPEN,
+          points: 0,
         },
         {
           title: 'Повредить',
           choice: ROOM_LAPTOP_BROKE,
+          points: -15,
         },
         {
           title: 'Выкинуть в мусорку',
           choice: ROOM_LAPTOP_TO_TRASH,
+          points: -10,
         },
         {
           title: 'Выкинуть в окно',
           choice: ROOM_LAPTOP_DROP,
+          points: -10,
+        },
+        {
+          title: 'Положить обратно',
+          choice: null,
+          points: 0,
         }
       ]
     },
@@ -64,18 +76,22 @@ export const mainState = {
         {
           title: 'Открыть',
           choice: ROOM_PHONE_OPEN,
+          points: 0,
         },
         {
           title: 'Повредить',
           choice: ROOM_PHONE_BROKE,
+          points: -15,
         },
         {
           title: 'Выкинуть в мусорку',
           choice: ROOM_PHONE_TO_TRASH,
+          points: -10,
         },
         {
           title: 'Выкинуть в окно',
           choice: ROOM_PHONE_DROP,
+          points: -10,
         }
       ]
     },
@@ -91,14 +107,27 @@ export const mainState = {
         {
           title: 'Порвать',
           choice: ROOM_CALENDAR_BROKE,
+          points: 0,
         },
         {
           title: 'Выкинуть в мусорку',
           choice: ROOM_CALENDAR_TO_TRASH,
+          points: -1,
+        },
+        {
+          title: 'Положить в шкаф',
+          choice: ROOM_CALENDAR_TO_CABINET,
+          points: 2,
         },
         {
           title: 'Выкинуть в окно',
           choice: ROOM_CALENDAR_DROP,
+          points: 0,
+        },
+        {
+          title: 'Ничего не делать',
+          choice: null,
+          points: 0,
         }
       ]
     },
@@ -113,15 +142,28 @@ export const mainState = {
       options: [
         {
           title: 'Порвать',
-          choice: ROOM_FLAG_BROKE,
+          choice: ROOM_CALENDAR_BROKE,
+          points: 10,
         },
         {
           title: 'Выкинуть в мусорку',
-          choice: ROOM_FLAG_TO_TRASH,
+          choice: ROOM_CALENDAR_TO_TRASH,
+          points: 10,
+        },
+        {
+          title: 'Положить в шкаф',
+          choice: ROOM_CALENDAR_TO_CABINET,
+          points: 2,
         },
         {
           title: 'Выкинуть в окно',
-          choice: ROOM_FLAG_DROP,
+          choice: ROOM_CALENDAR_DROP,
+          points: 10,
+        },
+        {
+          title: 'Повесить обратно',
+          choice: null,
+          points: 0,
         }
       ]
     },
@@ -135,20 +177,29 @@ export const mainState = {
       wheelOffsetY: 10,
       options: [
         {
-          title: 'Посмотреть',
-          choice: ROOM_STICKER_OPEN,
-        },
-        {
           title: 'Порвать',
           choice: ROOM_STICKER_BROKE,
+          points: 10,
         },
         {
           title: 'Выкинуть в мусорку',
           choice: ROOM_STICKER_TO_TRASH,
+          points: -10,
+        },
+        {
+          title: 'Положить в шкаф',
+          choice: ROOM_STICKER_TO_CABINET,
+          points: -10,
         },
         {
           title: 'Выкинуть в окно',
           choice: ROOM_STICKER_DROP,
+          points: 5,
+        },
+        {
+          title: 'Ничего не делать',
+          choice: null,
+          points: 0,
         }
       ]
     },
@@ -164,6 +215,12 @@ export const mainState = {
         {
           title: 'Поджечь',
           choice: ROOM_TRASH_FIRE,
+          points: -100
+        },
+        {
+          title: 'Не трогать',
+          choice: null,
+          points: 0
         },
       ]
     },
