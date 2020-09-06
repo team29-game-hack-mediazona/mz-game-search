@@ -8,7 +8,7 @@ export default class extends State {
     const bg = new Sprite(this.game, 0, 0, 'bootscreen');
     this.game.add.existing(bg);
 
-    if (!this.game.isUnavaliable('room-sticker')) {
+    if (!this.game.objects.isUnavaliable('room-sticker')) {
       console.log('Не уничтожен пароль! -10 очков')
       this.game.points -= 10
     }
