@@ -8,6 +8,8 @@ export default class extends Phaser.State {
     this.fontsReady = false
     this.fontsLoaded = this.fontsLoaded.bind(this)
 
+    this.game.points = 0;
+
     this.game.objects = {};
     this.game.objects.dropped = [];
     this.game.objects.inTrash = [];

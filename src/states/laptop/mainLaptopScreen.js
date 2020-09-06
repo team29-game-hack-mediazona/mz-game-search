@@ -45,6 +45,7 @@ export default class extends Phaser.State {
             action: () => {
               // in create
               this.game.objects.crypted.push('laptop')
+              this.game.points += 10
               indicator = new VisualTimer({
                 game: this.game,
                 x: 680,
@@ -66,6 +67,6 @@ export default class extends Phaser.State {
       )
     )
     this.game.add.existing(this.chromeButton)
-    BackButton.addButton(this.game, this.state, 'Game', 'close', () => { this.game.objects.cryptoTimer = indicator.remainingTime() })
+    BackButton.addButton(this.game, this.state, 'Game', 'close', () => { this.game.objects.cryptoTimer = indicator ? indicator.remainingTime() : 0 })
   }
 }

@@ -14,6 +14,7 @@ export default class extends Phaser.State {
     //
     // load your assets
     //
+    this.load.audio('knock', ['assets/knock.mp3'])
     this.load.image('mushroom', 'assets/images/mushroom2.png')
     this.load.image('room', 'assets/images/room.png')
     this.load.image('room-laptop', 'assets/images/room-laptop.png')
@@ -60,6 +61,7 @@ export default class extends Phaser.State {
     this.load.image('bootscreen-title', './assets/images/bootscreen-title.png')
     this.load.image('bootscreen-text', './assets/images/bootscreen-text.png')
     this.load.image('button-game-start', './assets/images/button-game-start.png')
+    this.load.image('button-game-door', './assets/images/button-game-door.png')
     this.load.image('fire', './assets/images/fire.png')
     this.load.image('room-trash', './assets/images/room-trash.png')
     this.load.image('room-trash-zoom', './assets/images/room-trash-zoom.png')
