@@ -45,6 +45,7 @@ export default class extends Phaser.State {
             action: () => {
               // in create
               this.game.objects.crypted.push('laptop')
+              this.game.points += 10
               indicator = new VisualTimer({
                 game: this.game,
                 x: 680,
