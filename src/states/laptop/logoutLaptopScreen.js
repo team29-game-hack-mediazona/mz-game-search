@@ -9,8 +9,7 @@ export default class extends Phaser.State {
 
   create () {
     this.laptopBg = this.add.sprite(0, 0, 'laptopBg')
-    this.laptopBrowser = this.add.sprite(this.game.world.centerX, this.game.world.centerY, 'laptopLogout')
-    centerGameObjects([this.laptopBrowser])
+    this.laptopBrowser = this.add.sprite(0, -19, 'laptopLogout')
 
     BackButton.addButton(this.game, this.state, 'Game', 'close')
   }

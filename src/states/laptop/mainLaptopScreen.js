@@ -12,8 +12,7 @@ export default class extends Phaser.State {
 
   create () {
     this.laptopBg = this.add.sprite(0, 0, 'laptopBg')
-    this.laptopZoom = this.add.sprite(this.game.world.centerX, this.game.world.centerY, 'laptopZoom')
-    centerGameObjects([this.laptopZoom])
+    this.laptopZoom = this.add.sprite(0, -19, 'laptopZoom')
 
     this.chromeButton = new Button(this.game, 480, 676, 'chrome', () => {
       this.game.objects.isLogout('vk') ? this.state.start('LogoutLaptopScreen') : this.state.start('BrowserLaptopScreen')
