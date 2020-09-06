@@ -18,15 +18,15 @@ import settingsPassScreenInput from './states/phone/settingsPassScreenInput'
 import ChoiceWheel from './UI/ChoiceWheelHelper'
 import TimerHelper from './UI/TimerHelper'
 
-import config from './config'
+// import config from './config'
 
 class Game extends Phaser.Game {
   constructor () {
-    const docElement = document.documentElement
-    const width = docElement.clientWidth > config.gameWidth ? config.gameWidth : docElement.clientWidth
-    const height = docElement.clientHeight > config.gameHeight ? config.gameHeight : docElement.clientHeight
+    // const docElement = document.documentElement
+    // const width = docElement.clientWidth > config.gameWidth ? config.gameWidth : docElement.clientWidth
+    // const height = docElement.clientHeight > config.gameHeight ? config.gameHeight : docElement.clientHeight
 
-    super(width, height, Phaser.CANVAS, 'content', null)
+    super(1440, 900, Phaser.CANVAS, 'content', null)
 
     // Обработчик окончания таймера
     this.onTimeEnd = () => {
