@@ -1,7 +1,6 @@
 import Phaser from 'phaser'
 import WebFont from 'webfontloader'
 import config from '../config';
-import TimerHelper from '../UI/TimerHelper';
 
 export default class extends Phaser.State {
   init() {
@@ -29,8 +28,6 @@ export default class extends Phaser.State {
     this.game.objects.isDeleted = (name) => this.game.objects.deleted.includes(name);
 
     this.game.objects.isUnavaliable = (name) => this.game.objects.isDropped(name) || this.game.objects.isInTrash(name) || this.game.objects.isBroken(name);
-
-    TimerHelper.startCounting()
   }
 
   preload() {
