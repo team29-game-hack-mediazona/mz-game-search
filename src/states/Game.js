@@ -39,6 +39,8 @@ export default class extends State {
       this.game.points = this.game.points + option.points;
     }
 
+    if (decision.points) this.game.points += decision.points;
+
     switch (decision) {
       case ROOM_LAPTOP_OPEN:
         this.state.start('MainLaptopScreen');
